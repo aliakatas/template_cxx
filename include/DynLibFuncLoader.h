@@ -4,7 +4,7 @@
 #ifdef _WIN32
 #include <windows.h>
 #define Dlsym(handle, symbol) GetProcAddress(handle, symbol)
-#else
+#else if __linux__
 #include <dlfcn.h>
 #define Dlsym(handle, symbol) dlsym(handle, symbol)
 #endif

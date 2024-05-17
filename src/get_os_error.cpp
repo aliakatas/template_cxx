@@ -2,7 +2,7 @@
 
 #ifdef _WIN32
 #include <windows.h>
-#else
+#else if __linux__
 #include <dlfcn.h>
 #define Dlerror dlerror
 #endif
@@ -33,7 +33,7 @@ std::string get_os_error() noexcept
     else 
         // Handle potential formatting errors
         what_happened = std::string("Unknown error ") + std::to_string(error_code);
-#else
+#else if __linux__
         std::string what_happened = std::string(Dlerror());
 #endif
     return what_happened;

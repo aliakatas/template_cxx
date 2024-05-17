@@ -1,10 +1,8 @@
 #include "build_version_utils.h"
 
-
 //***********************************************
 namespace build_info 
 {
-
     //============================================================
     std::string get_compiler_info() {
         // Compiler name

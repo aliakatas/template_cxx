@@ -6,7 +6,7 @@
 #define Dlopen(name, flags) LoadLibraryA(name)
 #define Dlclose FreeLibrary
 #define Dlerror GetLastError
-#else
+#else if __linux__
 #include <dlfcn.h>
 #define Dlopen(name, flags) dlopen(name, flags)
 #define Dlclose dlclose
