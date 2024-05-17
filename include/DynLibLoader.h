@@ -1,3 +1,5 @@
+#ifndef DYNLIBLOADER_H
+#define DYNLIBLOADER_H
 
 #ifdef _WIN32
 #include <windows.h>
@@ -53,4 +55,4 @@ public:
     void* Handle() const;
 };
 
-
+#endif // DYNLIBLOADER_H

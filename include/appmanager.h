@@ -1,3 +1,6 @@
+#ifndef APPMANAGER_H
+#define APPMANAGER_H
+
 #include <stdexcept>
 
 class AppManager
@@ -10,3 +13,5 @@ public:
 private:
 
 };
+
+#endif // APPMANAGER_H

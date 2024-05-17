@@ -1,3 +1,5 @@
+#ifndef DYNLIBFUNCLOADER_H
+#define DYNLIBFUNCLOADER_H
 
 #ifdef _WIN32
 #include <windows.h>
@@ -32,3 +34,4 @@ public:
     }
 };
 
+#endif // DYNLIBFUNCLOADER_H
