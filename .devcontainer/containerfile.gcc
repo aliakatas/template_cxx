@@ -1,0 +1,25 @@
+FROM docker.io/library/ubuntu:24.04
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+# Core build tools
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    cmake \
+    ninja-build \
+    git \
+    curl \
+    unzip \
+    ca-certificates \
+    pkg-config \
+    gdb \
+    lldb \
+    clang \
+    clangd \
+    clang-format \
+    clang-tidy \
+    gfortran \
+    # or flang-new \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /workspace

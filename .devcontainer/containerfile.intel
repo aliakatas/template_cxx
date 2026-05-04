@@ -1,0 +1,32 @@
+FROM docker.io/library/ubuntu:24.04
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN curl -fsSL https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB \
+    | gpg --dearmor -o /usr/share/keyrings/intel-oneapi-keyring.gpg && \
+    echo "deb [signed-by=/usr/share/keyrings/intel-oneapi-keyring.gpg] https://apt.repos.intel.com/oneapi all main" \
+    > /etc/apt/sources.list.d/oneAPI.list
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    intel-oneapi-compiler-dpcpp-cpp \
+    intel-oneapi-compiler-fortran \
+    cmake \
+    ninja-build \
+    git \
+    curl \
+    ca-certificates \
+    pkg-config \
+    clangd \
+    clang-format \
+    clang-tidy \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN echo "source /opt/intel/oneapi/setvars.sh" >> /etc/bash.bashrc
+
+WORKDIR /workspace
+
+# Also need to tell cmake to use the Intel compilers by default
+# cmake -DCMAKE_C_COMPILER=icx \
+#       -DCMAKE_CXX_COMPILER=icpx \
+#       -DCMAKE_Fortran_COMPILER=ifx \
+#       ..
