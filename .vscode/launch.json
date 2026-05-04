@@ -9,7 +9,8 @@
       "MIMode": "gdb",
       "miDebuggerPath": "/usr/bin/gdb",
       "cwd": "${workspaceFolder}",
-      "preLaunchTask": "cmake-debug-build"
+      "preLaunchTask": "cmake-debug-build",
+      "args": []
     },
     {
       "name": "Debug app (host)",
@@ -17,7 +18,8 @@
       "request": "launch",
       "program": "${workspaceFolder}/build/debug/example-project",
       "cwd": "${workspaceFolder}",
-      "preLaunchTask": "cmake-debug-build"
+      "preLaunchTask": "cmake-debug-build",
+      "args": []
     }
   ]
 }
