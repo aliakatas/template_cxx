@@ -1,4 +1,5 @@
 #include "appmanager.h"
+#include "custom_exceptions.h"
 
 #include <cstdlib>
 #include <iostream>
@@ -12,6 +13,14 @@ int main(int argc, char** argv)
     {
         app_manager.configure();
         errors_occured = app_manager.run();
+    }
+    catch (const custom_exceptions::ShowHelpException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
+    catch (const custom_exceptions::ShowVersionException& ex)
+    {
+        std::cout << ex.what() << std::endl;
     }
     catch (const std::exception& ex)
     {
