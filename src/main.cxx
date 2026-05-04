@@ -6,6 +6,8 @@
 
 int main(int argc, char** argv)
 {
+    //----------------------------------------
+    // Create the app manager and run the application
     AppManager app_manager(argc, argv);
     int errors_occured = 0;
     
@@ -16,10 +18,12 @@ int main(int argc, char** argv)
     }
     catch (const custom_exceptions::ShowHelpException& ex)
     {
+        // benign exceptions that are used to show help/version info, not errors
         std::cout << ex.what() << std::endl;
     }
     catch (const custom_exceptions::ShowVersionException& ex)
     {
+        // benign exceptions that are used to show help/version info, not errors
         std::cout << ex.what() << std::endl;
     }
     catch (const std::exception& ex)
