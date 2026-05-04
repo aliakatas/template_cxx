@@ -37,6 +37,8 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug" OR CMAKE_BUILD_TYPE STREQUAL "RelWithDebInf
     endif()
 endif()
 
+find_package(Boost 1.70 REQUIRED COMPONENTS program_options)
+
 set(INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/include")
 set(SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
 
@@ -52,6 +54,9 @@ add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 target_include_directories(${PROJECT_NAME} PUBLIC
     "${PROJECT_BINARY_DIR}/include"
     "${CMAKE_CURRENT_SOURCE_DIR}/include")
+
+target_include_directories(${PROJECT_NAME} PRIVATE ${Boost_INCLUDE_DIRS})
+target_link_libraries(${PROJECT_NAME} PRIVATE Boost::program_options)
 
 setup_target_compile_flags(${PROJECT_NAME})
 setup_compiler_specific_options(${PROJECT_NAME})
