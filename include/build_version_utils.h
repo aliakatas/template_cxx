@@ -1,5 +1,4 @@
-#ifndef BUILD_VERSION_UTILS_H 
-#define BUILD_VERSION_UTILS_H  
+#pragma once  
 
 #include <string>
 
@@ -37,4 +36,3 @@ namespace build_info {
 
 }
 
-#endif // BUILD_VERSION_UTILS_H

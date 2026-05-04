@@ -780,3 +780,12 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+###########################
+# byproducts of devcontainers
+.copilot/
+.dotnet/
+.local/
+.vscode-server/
+.gitconfig
+.ssh/

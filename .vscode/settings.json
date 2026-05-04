@@ -1,0 +1,3 @@
+{
+  "dev.containers.dockerPath": "/opt/podman/bin/podman"
+}

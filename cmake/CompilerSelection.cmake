@@ -5,7 +5,7 @@ endif()
 set(COMPILER_SELECTION_INCLUDED TRUE)
 
 # Define the preferred order of C++ compilers
-set(PREFERRED_CXX_COMPILERS icpx g++ clang++ cl)
+set(PREFERRED_CXX_COMPILERS icpx clang++ g++ cl)
 
 # Function to find the first available C++ compiler from the list
 function(find_preferred_cxx_compiler)
