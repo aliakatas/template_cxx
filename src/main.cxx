@@ -1,19 +1,24 @@
+#include "appmanager.h"
+
+#include <cstdlib>
 #include <iostream>
-#include <filesystem>
 
 int main(int argc, char** argv)
 {
-    bool errors_occured = false;
-    std::cout << "\n Starting the application " << std::filesystem::path(argv[0]).stem() << "..." << std::endl;
-
-    const int N = 1000;
-    int i = 0;
-    while (i < N)
+    AppManager app_manager(argc, argv);
+    int errors_occured = 0;
+    
+    try
     {
-        std::cout << "\n Working..." << std::endl;
-        ++i;
+        app_manager.configure();
+        errors_occured = app_manager.run();
     }
-
+    catch (const std::exception& ex)
+    {
+        errors_occured = 1;
+        std::cerr << "An error occurred: " << ex.what() << std::endl;
+    }
+    
     //----------------------------------------
     // Exit success/failure - more info in logs generated at runtime
     return errors_occured ? EXIT_FAILURE : EXIT_SUCCESS;

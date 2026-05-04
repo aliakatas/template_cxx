@@ -18,3 +18,9 @@ configure_file("${INCLUDE_DIR}/appconfig.h.in" "${PROJECT_BINARY_DIR}/include/ap
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
 target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_BINARY_DIR}/include" "${CMAKE_CURRENT_SOURCE_DIR}/include")
+
+target_compile_definitions(${PROJECT_NAME} PRIVATE
+    # Define any preprocessor macros here, e.g.:
+    _DEBUG
+)
+
