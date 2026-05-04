@@ -1,0 +1,23 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug app (devcontainer)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/debug/example-project",
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "cmake-debug-build"
+    },
+    {
+      "name": "Debug app (host)",
+      "type": "lldb-dap",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/debug/example-project",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "cmake-debug-build"
+    }
+  ]
+}
