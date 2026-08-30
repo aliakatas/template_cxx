@@ -1,18 +1,17 @@
 {
     "name": "devbase",
-    "build": {
-        "dockerfile": "./containerfile.gcc",
-        "context": "."
-    },
-    // or, instead of "build", use 
-    // "image": "docker.io/aristos86/devbase:gcc13.3-clang18.1-ubu24.04-arm64" 
+    "image": "docker.io/aristos86/cxxdev-clang-fedora:latest",
+    // see https://github.com/aliakatas/devcontainers-recipes for more options for devcontainers
     "customizations": {
         "vscode": {
             "extensions": [
                 "ms-vscode.cpptools",
                 "ms-vscode.cmake-tools",
                 "llvm-vs-code-extensions.vscode-clangd"
-            ]
+            ],
+            "settings": {
+                "cmake.configureOnOpen": true
+            }
         }
     },
     "mounts": [
